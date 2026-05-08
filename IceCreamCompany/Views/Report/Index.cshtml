@@ -1,0 +1,167 @@
+﻿@model InsecureCompany.Models.ReportViewModel
+
+@{
+    ViewData["Title"] = "Sales Reports";
+}
+
+<div class="container mt-4">
+
+    <h2 class="mb-4">
+        Ice Cream Sales Reports
+    </h2>
+
+    <!-- Total Sales -->
+
+    <h4>Total Sales</h4>
+
+    <table class="table table-bordered mb-5">
+
+        <tr>
+            <th>Total Sales</th>
+            <td>@Model.TotalSales</td>
+        </tr>
+
+    </table>
+
+    <!-- Month Wise Sales -->
+
+    <h4>Month Wise Sales</h4>
+
+    <table class="table table-bordered table-striped mb-5">
+
+        <thead>
+            <tr>
+                <th>Month</th>
+                <th>Sales</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            @foreach (var item in Model.MonthSales)
+            {
+                <tr>
+                    <td>@item.Month</td>
+                    <td>@item.Sales</td>
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+
+    <!-- Popular Items -->
+
+    <h4>Popular Items</h4>
+
+    <table class="table table-bordered mb-5">
+
+        <thead>
+            <tr>
+                <th>Month</th>
+                <th>Item</th>
+                <th>Quantity</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            @foreach (var item in Model.PopularItems)
+            {
+                <tr>
+                    <td>@item.Month</td>
+                    <td>@item.Item</td>
+                    <td>@item.Quantity</td>
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+
+    <!-- Highest Revenue Items -->
+
+    <h4>Highest Revenue Items</h4>
+
+    <table class="table table-bordered table-striped mb-5">
+
+        <thead>
+            <tr>
+                <th>Month</th>
+                <th>Item</th>
+                <th>Revenue</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            @foreach (var item in Model.RevenueReports)
+            {
+                <tr>
+                    <td>@item.Month</td>
+                    <td>@item.Item</td>
+                    <td>@item.Revenue</td>
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+
+    <!-- Growth Reports -->
+
+    <h4>Growth Reports</h4>
+
+    <table class="table table-bordered table-striped mb-5">
+
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th>Month</th>
+                <th>Growth Percentage</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            @foreach (var item in Model.GrowthReports)
+            {
+                <tr>
+                    <td>@item.Item</td>
+                    <td>@item.Month</td>
+                    <td>@item.GrowthPercentage %</td>
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+
+    <!-- Validation Errors -->
+
+    <h4>Validation Errors</h4>
+
+    <table class="table table-bordered table-striped mb-5">
+
+        <thead>
+            <tr>
+                <th>Line Number</th>
+                <th>Error Message</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            @foreach (var item in Model.ValidationErrors)
+            {
+                <tr>
+                    <td>@item.LineNumber</td>
+                    <td>@item.Message</td>
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+
+</div>
